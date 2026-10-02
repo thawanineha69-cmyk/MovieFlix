@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieFlix - Translation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="Header">
+
+        <!-- Logo -->
+        <div class="logo">
+            Movie<span>Flix</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+            <a href="index.html">🎬 Movies</a>
+            <a href="weather.html">☁️ Weather</a>
+            <a href="translation.html" class="active">文 Translation</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= TRANSLATION PAGE ================= -->
+    <main class="translation-page">
+
+        <div class="translation-container">
+
+            <!-- Heading -->
+            <div class="translation-heading">
+                <h1>🌐 Language Translation</h1>
+                <p>
+                    Translate your text quickly from one language to another.
+                </p>
+            </div>
+
+
+            <!-- Translation Box -->
+            <div class="translation-box">
+
+                <!-- Language Selection -->
+                <div class="language-row">
+
+                    <div class="language-group">
+                        <label for="source-language">
+                            From
+                        </label>
+
+                        <select id="source-language">
+                            <option value="en">🇬🇧 English</option>
+                            <option value="hi">🇮🇳 Hindi</option>
+                            <option value="es">🇪🇸 Spanish</option>
+                            <option value="fr">🇫🇷 French</option>
+                            <option value="de">🇩🇪 German</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Swap Button -->
+                    <button
+                        type="button"
+                        id="swap-language"
+                        class="swap-language"
+                        title="Swap languages">
+                        ⇄
+                    </button>
+
+
+                    <div class="language-group">
+                        <label for="target-language">
+                            To
+                        </label>
+
+                        <select id="target-language">
+                            <option value="hi">🇮🇳 Hindi</option>
+                            <option value="en">🇬🇧 English</option>
+                            <option value="es">🇪🇸 Spanish</option>
+                            <option value="fr">🇫🇷 French</option>
+                            <option value="de">🇩🇪 German</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <!-- Text Areas -->
+                <div class="translation-boxes">
+
+                    <!-- Source -->
+                    <div class="text-box">
+
+                        <div class="text-box-header">
+                            <span>✍️ Enter Text</span>
+                        </div>
+
+                        <textarea
+                            id="source-text"
+                            placeholder="✍️ Enter text here..."></textarea>
+
+                    </div>
+
+
+                    <!-- Result -->
+                    <div class="text-box">
+
+                        <div class="text-box-header">
+                            <span>🔤 Translation</span>
+                        </div>
+
+                        <textarea
+                            id="translated-text"
+                            placeholder="Translation will appear here..."
+                            readonly></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Translate Button -->
+                <div class="translate-action">
+
+                    <button
+                        type="button"
+                        id="translate-button"
+                        class="translate-btn">
+                        🌐 Translate
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="js/translation.js"></script>
+
+</body>
+
+</html>

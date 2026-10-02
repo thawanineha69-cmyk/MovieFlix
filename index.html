@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieFlix</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="Header">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            Movie<span>Flix</span>
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <div class="search_box">
+
+                <span class="movie-search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    class="search_input"
+                    id="search-input"
+                    placeholder="Search for movies..."
+                >
+
+                <button id="search-button">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-menu">
+
+            <a href="index.html" class="active">
+                🎬 Movies
+            </a>
+
+            <a href="weather.html">
+                ☁️ Weather
+            </a>
+
+            <a href="translation.html">
+                文 Translation
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filters">
+
+
+        <!-- GENRE -->
+
+        <div class="filter-box">
+
+            <span>🎭</span>
+
+            <select id="genre-filter">
+
+                <option value="">
+                    All Genres
+                </option>
+
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Crime">Crime</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Horror">Horror</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- YEAR -->
+
+        <div class="filter-box">
+
+            <span>📅</span>
+
+            <select id="year-filter">
+
+                <option value="">
+                    All Years
+                </option>
+
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- SORT -->
+
+        <div class="filter-box">
+
+            <span>↕️</span>
+
+            <select id="sort-by">
+
+                <option value="">
+                    Sort By
+                </option>
+
+                <option value="title-asc">
+                    A-Z
+                </option>
+
+                <option value="rating-desc">
+                    Highest Rated
+                </option>
+
+                <option value="year-desc">
+                    Latest Release
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- CLEAR -->
+
+        <button
+            class="clearBtn"
+            id="clear-filters"
+        >
+            ✕ Clear All
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= TRENDING ================= -->
+
+        <section id="trendingSection">
+
+
+            <div class="section-title">
+                🔥 Trending Now
+            </div>
+
+
+
+            <!-- TRENDING CAROUSEL -->
+
+            <div class="carousel-container">
+
+
+                <button
+                    class="carousel-btn-prev"
+                    id="trendingPrev"
+                    aria-label="Previous"
+                >
+                    ❮
+                </button>
+
+
+
+                <div
+                    class="carousel"
+                    id="trending-movies"
+                >
+
+                    <div class="loading">
+                        🎬 Loading trending movies...
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    class="carousel-btn-next"
+                    id="trendingNext"
+                    aria-label="Next"
+                >
+                    ❯
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= DISCOVER MOVIES ================= -->
+
+            <div
+                class="section-title"
+                id="random-section-title"
+            >
+                🎬 Discover Movies
+            </div>
+
+
+
+            <!-- MOVIE GRID -->
+
+            <div
+                class="movies-grid"
+                id="movie-grid"
+            >
+
+                <div class="loading">
+                    🎥 Loading movies...
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PAGINATION ================= -->
+
+            <div class="pagination">
+
+
+                <button id="prev-page">
+                    ❮ Previous
+                </button>
+
+
+                <span id="page-info">
+                    Page 1
+                </span>
+
+
+                <button id="next-page">
+                    Next ❯
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= LOADING ================= -->
+
+            <div
+                id="loading"
+                class="loading"
+                style="display: none;"
+            >
+                🎬 Loading movies...
+            </div>
+
+
+
+            <!-- ================= ERROR ================= -->
+
+            <div
+                id="error-message"
+                style="display: none;"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/custom.js"></script>
+
+
+</body>
+
+</html>

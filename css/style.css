@@ -1,0 +1,2189 @@
+/* =========================================================
+   MOVIEFLIX - COMPLETE STYLE
+   Movies + Weather + Translation + Movie Details
+   CLEAN VERSION - NO DUPLICATE SELECTORS
+========================================================= */
+
+
+/* =========================================================
+   RESET / COMMON
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #090909;
+    color: #ffffff;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   MOVIE HEADER
+========================================================= */
+
+.Header {
+    width: 100%;
+    min-height: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+    padding: 0 55px;
+
+    background: #080808;
+    border-bottom: 1px solid #252525;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.Header .logo {
+    font-size: 34px;
+    font-weight: 800;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+}
+
+.Header .logo span {
+    color: #e50914;
+}
+
+
+/* =========================================================
+   MOVIE SEARCH
+========================================================= */
+
+.search-container {
+    flex: 1;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+.search_box {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    background: #151515;
+
+    border: 1px solid #383838;
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.search_box:focus-within {
+    border-color: #e50914;
+
+    box-shadow:
+        0 0 0 3px rgba(229, 9, 20, 0.12);
+}
+
+.movie-search-icon {
+    width: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #888;
+    font-size: 15px;
+}
+
+.search_input {
+    flex: 1;
+
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 10px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: white;
+
+    font-size: 15px;
+}
+
+.search_input::placeholder {
+    color: #777;
+}
+
+.search_box button {
+    height: 100%;
+
+    padding: 0 22px;
+
+    border: none;
+
+    background: #e50914;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.search_box button:hover {
+    background: #ff1825;
+}
+
+
+/* =========================================================
+   MOVIE NAVIGATION
+========================================================= */
+
+.nav-menu {
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.nav-menu a {
+    position: relative;
+
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: white;
+}
+
+.nav-menu a.active {
+    color: #ff1e2d;
+    font-weight: 600;
+}
+
+.nav-menu a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+
+    height: 3px;
+
+    background: #e50914;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   MOVIE FILTERS
+========================================================= */
+
+.filters {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 35px;
+
+    background: #0d0d0d;
+
+    border-bottom: 1px solid #242424;
+}
+
+.filter-box {
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 13px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.filter-box:hover {
+    border-color: #555;
+}
+
+.filter-box span {
+    font-size: 15px;
+}
+
+.filter-box select {
+    min-width: 120px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #ddd;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.filter-box select option {
+    background: #181818;
+    color: white;
+}
+
+.clearBtn {
+    height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid #492020;
+    border-radius: 10px;
+
+    background: transparent;
+    color: #ff6b72;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.clearBtn:hover {
+    background: #e50914;
+
+    border-color: #e50914;
+
+    color: white;
+}
+
+
+/* =========================================================
+   MOVIE MAIN
+========================================================= */
+
+.main-content {
+    min-height: calc(100vh - 154px);
+
+    padding: 35px 30px 70px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(100, 10, 25, 0.18),
+            transparent 35%
+        ),
+        #0b0b0b;
+}
+
+.section-title {
+    margin: 5px 0 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: white;
+
+    font-size: 28px;
+    font-weight: 750;
+}
+
+#random-section-title {
+    margin-top: 55px;
+}
+
+
+/* =========================================================
+   MOVIE CAROUSEL
+========================================================= */
+
+.carousel-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.carousel {
+    width: 100%;
+
+    display: flex;
+
+    gap: 16px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    padding: 5px 0 15px;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-btn-prev,
+.carousel-btn-next {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #444;
+    border-radius: 50%;
+
+    background: rgba(10, 10, 10, 0.92);
+
+    color: white;
+
+    font-size: 19px;
+
+    z-index: 5;
+
+    transition: 0.3s;
+}
+
+.carousel-btn-prev {
+    left: 8px;
+}
+
+.carousel-btn-next {
+    right: 8px;
+}
+
+.carousel-btn-prev:hover,
+.carousel-btn-next:hover {
+    background: #e50914;
+
+    border-color: #e50914;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   MOVIE CARDS
+========================================================= */
+
+.movie-card {
+    flex: 0 0 190px;
+
+    min-width: 190px;
+
+    overflow: hidden;
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #e50914;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 285px;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #222;
+}
+
+.movie-card-content {
+    padding: 14px;
+}
+
+.movie-card h3 {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 17px;
+
+    line-height: 1.35;
+}
+
+.movie-card p {
+    margin: 5px 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+.movie-rating {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 4px;
+
+    margin-top: 5px;
+
+    color: #ffc107;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MOVIE GRID
+========================================================= */
+
+.movies-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(190px, 1fr));
+
+    gap: 22px;
+}
+
+.movies-grid .movie-card {
+    min-width: 0;
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+    margin-top: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.pagination button {
+    padding: 11px 20px;
+
+    border: 1px solid #3b3b3b;
+    border-radius: 9px;
+
+    background: #171717;
+    color: #ddd;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.pagination button:hover {
+    background: #e50914;
+
+    border-color: #e50914;
+
+    color: white;
+}
+
+.pagination button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+#page-info {
+    min-width: 80px;
+
+    text-align: center;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.loading {
+    width: 100%;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 16px;
+}
+
+#error-message {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border: 1px solid #5c2424;
+    border-radius: 10px;
+
+    background: #1b1010;
+
+    color: #ff6b6b;
+}
+
+
+/* =========================================================
+   WEATHER HEADER
+========================================================= */
+
+.weather-header {
+    min-height: 82px;
+    height: 82px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background: #080808;
+
+    border-bottom: 1px solid #252525;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.weather-logo {
+    font-size: 34px;
+    font-weight: 800;
+
+    color: white;
+
+    white-space: nowrap;
+}
+
+.weather-logo span {
+    color: #e50914;
+}
+
+
+/* =========================================================
+   WEATHER MOVIE SEARCH
+========================================================= */
+
+.weather-movie-search {
+    width: 400px;
+}
+
+.weather-movie-search-box {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    background: #151515;
+
+    border: 1px solid #383838;
+    border-radius: 28px;
+
+    overflow: hidden;
+}
+
+.weather-movie-search-box > span {
+    width: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #888;
+}
+
+.weather-movie-search-box input {
+    flex: 1;
+
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 8px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: white;
+}
+
+.weather-movie-search-box input::placeholder {
+    color: #777;
+}
+
+.weather-movie-search-box button {
+    height: 100%;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: #e50914;
+    color: white;
+}
+
+
+/* =========================================================
+   WEATHER NAVIGATION
+========================================================= */
+
+.weather-nav {
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.weather-nav a {
+    position: relative;
+
+    height: 82px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.weather-nav a:hover {
+    color: white;
+}
+
+.weather-nav a.active {
+    color: #ff1e2d;
+}
+
+.weather-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+
+    height: 3px;
+
+    background: #e50914;
+}
+
+
+/* =========================================================
+   WEATHER PAGE
+========================================================= */
+
+.weather-page {
+    min-height: calc(100vh - 82px);
+
+    padding: 65px 20px 90px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(100, 15, 50, 0.30),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #090909,
+            #111111 50%,
+            #090909
+        );
+}
+
+.weather-content {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.weather-heading {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.weather-main-icon {
+    font-size: 58px;
+
+    margin-bottom: 8px;
+}
+
+.weather-heading h1 {
+    margin: 0;
+
+    font-size: 48px;
+    font-weight: 800;
+
+    color: white;
+}
+
+.weather-heading h1 span {
+    color: #e50914;
+}
+
+.weather-heading p {
+    margin-top: 10px;
+
+    color: #aaa;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   WEATHER SEARCH
+========================================================= */
+
+.weather-search {
+    max-width: 720px;
+
+    margin: 0 auto 45px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.city-input-box {
+    flex: 1;
+
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 18px;
+
+    background: #151515;
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 12px;
+}
+
+.city-input-box span {
+    font-size: 21px;
+}
+
+.city-input-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: white;
+
+    font-size: 16px;
+}
+
+.city-input-box input::placeholder {
+    color: #777;
+}
+
+.weather-search > button {
+    height: 58px;
+
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #e50914;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.weather-search > button:hover {
+    background: #ff1825;
+}
+
+
+/* =========================================================
+   WEATHER CARD
+========================================================= */
+
+.weather-card {
+    width: 100%;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1d1d1d,
+            #0d0d0d
+        );
+
+    border: 1px solid #343434;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65);
+}
+
+.weather-card-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #303030;
+}
+
+.weather-card-header h2 {
+    color: white;
+
+    font-size: 28px;
+}
+
+.weather-card-header p {
+    margin-top: 7px;
+
+    color: #888;
+}
+
+.weather-status {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 6px 12px;
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 30px;
+
+    color: #ddd;
+}
+
+.weather-status img {
+    width: 40px;
+    height: 40px;
+}
+
+
+/* =========================================================
+   WEATHER MAIN
+========================================================= */
+
+.weather-main {
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr 1fr;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 35px 10px;
+}
+
+.weather-icon-large {
+    display: flex;
+    justify-content: center;
+}
+
+.weather-icon-large img {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+}
+
+.temperature-section {
+    padding-right: 25px;
+
+    border-right: 1px solid #333;
+}
+
+.temperature-section h3 {
+    color: white;
+
+    font-size: 70px;
+
+    line-height: 1;
+}
+
+.temperature-section p {
+    margin-top: 14px;
+
+    color: #aaa;
+}
+
+.temperature-section strong {
+    color: #ff5963;
+}
+
+.weather-description {
+    padding-left: 5px;
+}
+
+.weather-description h3 {
+    margin-bottom: 10px;
+
+    color: white;
+
+    font-size: 23px;
+}
+
+.weather-description p {
+    color: #999;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   WEATHER INFORMATION
+========================================================= */
+
+.weather-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.weather-info-box {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border: 1px solid #303030;
+
+    border-radius: 15px;
+
+    background: #141414;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #252525;
+
+    font-size: 25px;
+}
+
+.weather-info-box span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+.weather-info-box strong {
+    color: white;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   TRANSLATION HEADER
+========================================================= */
+
+.translation-header {
+    min-height: 82px;
+    height: 82px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background: #080808;
+
+    border-bottom: 1px solid #252525;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.translation-logo {
+    font-size: 34px;
+    font-weight: 800;
+
+    color: white;
+}
+
+.translation-logo span {
+    color: #e50914;
+}
+
+.translation-nav {
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.translation-nav a {
+    position: relative;
+
+    height: 82px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.translation-nav a:hover {
+    color: white;
+}
+
+.translation-nav a.active {
+    color: #ff1e2d;
+}
+
+.translation-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 10px;
+    right: 10px;
+
+    height: 3px;
+
+    background: #e50914;
+}
+
+
+/* =========================================================
+   TRANSLATION PAGE
+========================================================= */
+
+.translation-page {
+    min-height: calc(100vh - 82px);
+
+    padding: 65px 20px 90px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(100, 15, 50, 0.30),
+            transparent 40%
+        ),
+        #0b0b0b;
+}
+
+.translation-content {
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.translation-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.translation-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.translation-heading h1 {
+    color: white;
+
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.translation-heading h1 span {
+    color: #e50914;
+}
+
+.translation-heading p {
+    margin-top: 10px;
+
+    color: #999;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   TRANSLATION CONTROLS
+========================================================= */
+
+.translation-controls {
+    display: grid;
+
+    grid-template-columns:
+        1fr 70px 1fr;
+
+    align-items: end;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.language-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.language-group select {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #383838;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #151515;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.language-group select option {
+    background: #181818;
+
+    color: white;
+}
+
+.swap-language {
+    width: 55px;
+    height: 50px;
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 10px;
+
+    background: #171717;
+
+    color: white;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+.swap-language:hover {
+    background: #e50914;
+
+    border-color: #e50914;
+
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   TRANSLATION BOXES
+========================================================= */
+
+.translation-boxes {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+}
+
+.translation-box {
+    padding: 20px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 18px;
+}
+
+.translation-box h3 {
+    margin-bottom: 12px;
+
+    color: white;
+
+    font-size: 17px;
+}
+
+.translation-box textarea {
+    width: 100%;
+
+    min-height: 260px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #0d0d0d;
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+.translation-box textarea:focus {
+    border-color: #e50914;
+}
+
+.translation-box textarea::placeholder {
+    color: #666;
+}
+
+
+/* =========================================================
+   TRANSLATE BUTTON
+========================================================= */
+
+.translate-button-container {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.translate-btn {
+    min-width: 220px;
+
+    height: 52px;
+
+    padding: 0 30px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #e50914;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.translate-btn:hover {
+    background: #ff1825;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(229, 9, 20, 0.25);
+}
+
+.translation-result {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border: 1px solid #333;
+
+    border-radius: 15px;
+
+    background: #151515;
+
+    color: #ddd;
+
+    line-height: 1.7;
+
+    display: none;
+}
+
+.translation-error {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    border: 1px solid #5c2424;
+
+    border-radius: 10px;
+
+    background: #1b1010;
+
+    color: #ff6b6b;
+}
+
+
+/* =========================================================
+   MOVIE DETAILS PAGE
+   IMPORTANT:
+   UNIQUE DETAILS CLASSES
+========================================================= */
+
+.details-page {
+    min-height: calc(100vh - 82px);
+
+    padding: 45px 35px 70px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(120, 0, 20, 0.18),
+            transparent 45%
+        ),
+        #080808;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+
+    padding: 12px 20px;
+
+    background: #171717;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #e50914;
+
+    border-color: #e50914;
+}
+
+
+/* =========================================================
+   MOVIE DETAILS CARD
+========================================================= */
+
+#movie-details {
+    width: min(1200px, 100%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        350px minmax(0, 1fr);
+
+    gap: 45px;
+
+    padding: 35px;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================================
+   DETAILS POSTER
+========================================================= */
+
+.movie-detail-poster {
+    width: 100%;
+}
+
+.movie-detail-poster img {
+    width: 100%;
+
+    max-width: 350px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================================
+   DETAILS INFORMATION
+========================================================= */
+
+.movie-detail-info {
+    min-width: 0;
+
+    padding-top: 5px;
+}
+
+.movie-detail-info h1 {
+    margin: 0 0 20px;
+
+    color: #fff;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+
+/* =========================================================
+   DETAILS META
+========================================================= */
+
+.movie-detail-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.movie-detail-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 14px;
+
+    background: #242424;
+
+    border: 1px solid #343434;
+
+    border-radius: 20px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DETAILS INFORMATION PARAGRAPHS
+========================================================= */
+
+.movie-detail-info > p {
+    margin: 12px 0;
+
+    color: #ccc;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+.movie-detail-info > p strong {
+    color: white;
+}
+
+
+/* =========================================================
+   MOVIE DESCRIPTION
+========================================================= */
+
+.movie-description {
+    margin-top: 30px;
+
+    padding: 22px 25px;
+
+    background: #0d0d0d;
+
+    border-left: 4px solid #e50914;
+
+    border-radius: 0 12px 12px 0;
+}
+
+.movie-description h2 {
+    margin: 0 0 12px;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+.movie-description p {
+    margin: 0;
+
+    color: #c7c7c7;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MOVIE PLOT
+========================================================= */
+
+.movie-plot {
+    margin-top: 30px;
+
+    padding: 22px 25px;
+
+    background: #0d0d0d;
+
+    border-left: 4px solid #e50914;
+
+    border-radius: 0 12px 12px 0;
+}
+
+.movie-plot h2 {
+    margin: 0 0 12px;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+.movie-plot p {
+    margin: 0;
+
+    color: #c7c7c7;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DETAILS LOADING
+========================================================= */
+
+.movie-loading {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    color: #aaa;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   DETAILS ERROR
+========================================================= */
+
+.movie-error {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #ff5a5a;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .Header,
+    .weather-header,
+    .translation-header {
+        padding: 0 25px;
+    }
+
+    .search-container {
+        max-width: 330px;
+    }
+
+    .weather-movie-search {
+        width: 320px;
+    }
+
+    .nav-menu a,
+    .weather-nav a,
+    .translation-nav a {
+        padding: 0 9px;
+    }
+
+
+    /* Details */
+
+    #movie-details {
+        grid-template-columns:
+            320px minmax(0, 1fr);
+
+        gap: 30px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 850px
+========================================================= */
+
+@media (max-width: 850px) {
+
+    /* Headers */
+
+    .Header,
+    .weather-header,
+    .translation-header {
+
+        height: auto;
+
+        min-height: 80px;
+
+        padding: 15px 20px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    /* Logos */
+
+    .Header .logo,
+    .weather-logo,
+    .translation-logo {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    /* Search */
+
+    .search-container,
+    .weather-movie-search {
+
+        width: 100%;
+
+        max-width: 450px;
+    }
+
+
+    /* Navigation */
+
+    .nav-menu,
+    .weather-nav,
+    .translation-nav {
+
+        width: 100%;
+
+        height: 45px;
+
+        justify-content: center;
+    }
+
+    .nav-menu a,
+    .weather-nav a,
+    .translation-nav a {
+
+        height: 45px;
+    }
+
+
+    /* Filters */
+
+    .filters {
+
+        flex-wrap: wrap;
+
+        padding: 15px 20px;
+    }
+
+
+    /* Weather */
+
+    .weather-main {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .temperature-section {
+
+        padding: 0 0 25px;
+
+        border-right: none;
+
+        border-bottom: 1px solid #333;
+    }
+
+    .weather-description {
+
+        padding: 0;
+    }
+
+    .weather-info {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Translation */
+
+    .translation-controls {
+
+        grid-template-columns: 1fr;
+    }
+
+    .swap-language {
+
+        width: 100%;
+    }
+
+    .translation-boxes {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Movie Details */
+
+    #movie-details {
+
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        padding: 28px;
+
+        gap: 30px;
+    }
+
+    .movie-detail-poster img {
+
+        max-width: 300px;
+    }
+
+    .movie-detail-info h1 {
+
+        font-size: 34px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Main */
+
+    .main-content {
+
+        padding: 25px 15px 50px;
+    }
+
+    .section-title {
+
+        font-size: 23px;
+    }
+
+
+    /* Movie Grid */
+
+    .movies-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .movie-card {
+
+        min-width: 0;
+
+        flex-basis: 160px;
+    }
+
+    .movie-card img {
+
+        height: 240px;
+    }
+
+
+    /* Filters */
+
+    .filter-box {
+
+        flex: 1;
+    }
+
+    .filter-box select {
+
+        min-width: 0;
+
+        width: 100%;
+    }
+
+    .clearBtn {
+
+        width: 100%;
+    }
+
+
+    /* Weather / Translation */
+
+    .weather-heading h1,
+    .translation-heading h1 {
+
+        font-size: 36px;
+    }
+
+
+    /* Weather */
+
+    .weather-card {
+
+        padding: 20px;
+    }
+
+    .weather-card-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .temperature-section h3 {
+
+        font-size: 55px;
+    }
+
+    .weather-search {
+
+        flex-direction: column;
+    }
+
+    .weather-search > button {
+
+        width: 100%;
+    }
+
+
+    /* Pages */
+
+    .translation-page,
+    .weather-page {
+
+        padding: 40px 15px 60px;
+    }
+
+
+    /* Details */
+
+    .details-page {
+
+        padding: 25px 15px 60px;
+    }
+
+    #movie-details {
+
+        padding: 20px;
+
+        gap: 25px;
+    }
+
+    .movie-detail-info h1 {
+
+        font-size: 30px;
+    }
+
+    .movie-description,
+    .movie-plot {
+
+        padding: 18px;
+    }
+
+    .movie-description p,
+    .movie-plot p {
+
+        font-size: 15px;
+    }
+
+
+    /* Header */
+
+    .Header {
+
+        min-height: 75px;
+
+        padding: 15px;
+    }
+
+    .Header .logo {
+
+        font-size: 32px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 400px
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .Header .logo,
+    .weather-logo,
+    .translation-logo {
+
+        font-size: 28px;
+    }
+
+
+    .nav-menu a,
+    .weather-nav a,
+    .translation-nav a {
+
+        padding: 0 6px;
+
+        font-size: 13px;
+    }
+
+
+    .movies-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .movie-card img {
+
+        height: 210px;
+    }
+
+    .movie-card-content {
+
+        padding: 10px;
+    }
+
+    .movie-card h3 {
+
+        font-size: 15px;
+    }
+
+    .movie-card p {
+
+        font-size: 12px;
+    }
+
+
+    /* Details */
+
+    #movie-details {
+
+        padding: 15px;
+    }
+
+    .movie-detail-info h1 {
+
+        font-size: 26px;
+    }
+
+    .movie-detail-meta span {
+
+        padding: 7px 10px;
+
+        font-size: 12px;
+    }
+}

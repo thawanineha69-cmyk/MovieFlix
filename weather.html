@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather - MovieFlix</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="weather-header">
+
+        <div class="weather-logo">
+            Movie<span>Flix</span>
+        </div>
+
+        <div class="weather-movie-search">
+
+            <div class="weather-movie-search-box">
+
+                <span>🔍</span>
+
+                <input type="text" placeholder="Search for movies...">
+
+                <button type="button">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+        <nav class="weather-nav">
+
+            <a href="index.html">
+                🎬 Movies
+            </a>
+
+            <a href="weather.html" class="active">
+                ☁️ Weather
+            </a>
+
+            <a href="translation.html">
+                文 Translation
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= WEATHER PAGE ================= -->
+
+    <main class="weather-page">
+
+        <div class="weather-content">
+
+            <!-- Heading -->
+
+            <div class="weather-heading">
+
+                <div class="weather-main-icon">
+                    ☁️☀️
+                </div>
+
+                <h1>
+                    Weather <span>Forecast</span>
+                </h1>
+
+                <p>
+                    Check the current weather of any city
+                </p>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="weather-search">
+
+                <div class="city-input-box">
+
+                    <span>📍</span>
+
+                    <input type="text" id="cityInput" placeholder="Enter city name...">
+
+                </div>
+
+                <button id="searchBtn">
+                    🔍 Search
+                </button>
+
+            </div>
+
+
+            <!-- Weather Result -->
+
+            <div id="weatherResult">
+
+                <div class="weather-placeholder">
+
+                    <div class="placeholder-icon">
+                        🌤️
+                    </div>
+
+                    <h2>
+                        Search for a city
+                    </h2>
+
+                    <p>
+                        Enter a city name above to see the current weather.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/weather.js"></script>
+
+</body>
+
+</html>
